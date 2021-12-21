@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+spec:
+  containers:
+    - name: nginx
+      image: nginx:alpine
+      env:
+        - name: FIRST_CONFIG
+          valueFrom:
+            configMapKeyRef:
+              name: config_demo
+              key: config_1
+        - name: CONFIG_FILE_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: config_demo
+              key: config_file_name
+      volumeMounts:
+      - name: config
+        mountPath: "/config"
+        readOnly: true
+  volumes:
+    - name: config
+      configMap:
+        name: config-demo
+        items: 
+        - key: "config.properties"
+          path: "config.properties"

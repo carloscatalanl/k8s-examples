@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config-demo
+data:
+
+  # property-like keys
+  config_1: "1"
+  config_file_name: "config.properties"
+
+  # file-like keys
+  config.properties: |
+    color.good=purple
+    color.bad=yellow
+    allow.textmode=true

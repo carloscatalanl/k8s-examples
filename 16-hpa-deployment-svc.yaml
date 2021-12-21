@@ -1,0 +1,39 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: hpa # tag
+spec:
+  type: NodePort
+  selector:
+    app: hpa # tag
+  ports:
+  - port: 80
+    targetPort: 80
+    nodePort: 30000 # -> 80
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hpa # tag
+spec:
+  replicas: 3 # defalut pods replicas
+  selector:
+    matchLabels:
+      app: hpa # tag
+  template:
+    metadata:
+      labels:
+        app: hpa # tag
+    spec:
+      containers:
+      - name: hpa # tag
+        image: k8s.gcr.io/hpa-example # Sum and print ok (CPU load)
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "200m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80 # <- 30000
