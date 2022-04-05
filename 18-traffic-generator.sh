@@ -1,9 +1,12 @@
 #!/bin/bash
 
+echo IP:
+read IP
+
 # Infinite loop
 while true
 do 
-  curl 127.0.0.1:50706
+  curl $IP
   echo 'Press ctrl+c to escape.'
 done
 

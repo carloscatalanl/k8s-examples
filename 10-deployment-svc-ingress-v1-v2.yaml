@@ -46,6 +46,7 @@ kind: Service
 metadata:
   name: hello-v1
 spec:
+  type: ClusterIP
   ports:
   - port: 8080
     targetPort: 8080
@@ -58,6 +59,7 @@ kind: Service
 metadata:
   name: hello-v2
 spec:
+  type: ClusterIP
   ports:
   - port: 8080
     targetPort: 8080

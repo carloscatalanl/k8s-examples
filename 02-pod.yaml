@@ -8,7 +8,7 @@ spec:
     image: nginx:alpine
     env:
     - name: ENV_VAR
-      value: "var_2"
+      value: "env-var-value"
     - name: HOST_IP
       valueFrom:
         fieldRef:
@@ -16,7 +16,7 @@ spec:
     resources:
       requests:
         memory: "64Mi"
-        cpu: "200m"
+        cpu: "200m" # 1000m = 1 core
       limits:
         memory: "128Mi"
         cpu: "500m"

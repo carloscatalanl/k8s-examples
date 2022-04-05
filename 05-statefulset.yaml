@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: my-csi-app-set
+  name: my-app
 spec:
   selector:
     matchLabels:
@@ -21,14 +21,14 @@ spec:
         - infinity
         volumeMounts:
         - mountPath: "/data"
-          name: csi-pvc
+          name: my-pvc
   volumeClaimTemplates:
   - metadata:
-      name: csi-pvc
+      name: my-pvc
     spec:
       accessModes:
       - ReadWriteOnce
       resources:
         requests:
           storage: 5Gi
-      storageClassName: do-block-storage
+      storageClassName: default

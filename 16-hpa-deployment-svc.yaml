@@ -1,32 +1,32 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: hpa # tag
+  name: hpa-svc
 spec:
-  type: NodePort
-  selector:
-    app: hpa # tag
+  type: LoadBalancer
   ports:
   - port: 80
     targetPort: 80
-    nodePort: 30000 # -> 80
+  selector:
+    app: hpa
+
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: hpa # tag
+  name: hpa 
 spec:
-  replicas: 3 # defalut pods replicas
+  replicas: 3 
   selector:
     matchLabels:
-      app: hpa # tag
+      app: hpa 
   template:
     metadata:
       labels:
-        app: hpa # tag
+        app: hpa 
     spec:
       containers:
-      - name: hpa # tag
+      - name: hpa 
         image: k8s.gcr.io/hpa-example # Sum and print ok (CPU load)
         resources:
           requests:
@@ -36,4 +36,4 @@ spec:
             memory: "128Mi"
             cpu: "500m"
         ports:
-        - containerPort: 80 # <- 30000
+        - containerPort: 80 

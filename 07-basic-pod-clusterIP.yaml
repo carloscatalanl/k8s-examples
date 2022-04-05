@@ -1,3 +1,4 @@
+## Basic pod just for test the clusterIP
 apiVersion: v1
 kind: Pod
 metadata:

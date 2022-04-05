@@ -10,12 +10,12 @@ spec:
         - name: FIRST_CONFIG
           valueFrom:
             configMapKeyRef:
-              name: config_demo
+              name: config-demo
               key: config_1
         - name: CONFIG_FILE_NAME
           valueFrom:
             configMapKeyRef:
-              name: config_demo
+              name: config-demo
               key: config_file_name
       volumeMounts:
       - name: config

@@ -1,9 +1,6 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
-commonLabels:
-  app: from_kustm
-
 resources:
 - 14-secret.yaml
 - 15-pod-secret.yaml
@@ -11,3 +8,6 @@ resources:
 images:
 - name: nginx
   newTag: latest
+
+commonLabels:
+  app: from_kustomization
