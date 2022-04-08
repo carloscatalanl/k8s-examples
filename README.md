@@ -1,7 +1,7 @@
 # K8s Examples
 
 > Kubernetes examples
-> 
+
 ## Prerequisites
 
 kubectl:
@@ -59,10 +59,11 @@ kubectl -n <namespace-name> logs <pod-name>
 
 Exec a pod sh:
 ```ssh
-kubectl -n exec <namespace-name> -it <pod-name> -- sh
+kubectl -n <namespace-name> exec -it <pod-name> -- sh
 ```
 
 Delete a resource:
 ```ssh
 kubectl -n <namespace-name> delete <kind> <name>
 ```
+kubectl get nodes -o wide
