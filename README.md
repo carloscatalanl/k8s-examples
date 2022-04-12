@@ -66,4 +66,8 @@ Delete a resource:
 ```ssh
 kubectl -n <namespace-name> delete <kind> <name>
 ```
+
+Get nodes ip:
+```ssh
 kubectl get nodes -o wide
+```
