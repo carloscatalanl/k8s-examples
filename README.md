@@ -71,3 +71,10 @@ Get nodes ip:
 ```ssh
 kubectl get nodes -o wide
 ```
+
+Apply kustomization.yaml:
+```ssh
+kubectl apply -k .
+or
+kustomize build . | kubectl apply -f -
+```
